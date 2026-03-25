@@ -1,50 +1,75 @@
-# Welcome to your Expo app 👋
+# SereneSpace Breathing Pace Configurator
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Overview
+The **Breathing Pace Configurator** is a standalone React Native component build for the *SereneSpace* mobile application. It allows users to customize breathing cycles (inhale, hold, exhale, and hold) and preview them in real time through a smooth animated breathing cycle.
 
-## Get started
+The component is designed for anxiety management use cases, focusing on accuracy, smooth animation, performance, and a calm user experience.
 
-1. Install dependencies
+---
 
-   ```bash
-   npm install
-   ```
+## Features
 
-2. Start the app
+- Real-time breathing animation based on user input
+- Four configurable phases:
+   - Inhale
+   - Hold (after inhale)
+   - Exhale
+   - Hold (after exhale)
+- Smooth continuous loop animation
+- Dynamic timing updates when inputs change
+- Input validation with fallback defaults
+- Clean, minimalist, calming UI
+- Works on both IOS and Android
+- Fully modular and maintainable code structure
 
-   ```bash
-   npx expo start
-   ```
+---
 
-In the output, you'll find options to open the app in a
+## Installation & Setup
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+### 1. Clone the Project
+git clone https://github.com/saqibaltaf27/SereneSpace.git
+cd SereneSpace
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+### 2. Install Dependencies
+npm install
 
-## Get a fresh project
+### 3. Start Development Server
+npx expo start
 
-When you're ready, run:
+### 4. Run on Android / Emulator
+press `a` in terminal
 
-```bash
-npm run reset-project
-```
+---
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Input Configuration
+The component accepts four numeric inputs
+Phase                Description
+Inhale               Expansion duration
+Hold                 Pause Duration
+Exhale               Contraction Duration
+Hold (after exhale)  Pause Duration
 
-## Learn more
+---
 
-To learn more about developing your project with Expo, look at the following resources:
+## Validation Rules
+- Only positive integers allowed
+- Empty or invalid values default to 4 seconds
+- Non-numeric characters are automatically sanitized
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+---
 
-## Join the community
+## Animation Behavior
 
-Join our community of developers creating universal apps.
+- Uses React Native Animation API
+- Scale transformation controls breathing circle size
+- Animation follows this seqeuence:
+   1. Inhale -> scale up
+   2. Hold -> pause
+   3. Exhale -> Scale down
+   4. Hold -> pause
+   5. Loop Continuously
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- Animation restarts cleanly whenever input values change
+- No overlapping or duplicated animations
+
+---
